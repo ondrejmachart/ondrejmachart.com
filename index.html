@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ondrej Machart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Rubik:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedTexts = document.querySelectorAll('.animated-text');
+            
+            animatedTexts.forEach(element => {
+                const text = element.textContent;
+                element.innerHTML = text.split('').map(char => 
+                    char === ' ' ? ' ' : `<span>${char}</span>`
+                ).join('');
+                
+                // Add hover listeners to each span
+                const spans = element.querySelectorAll('span');
+                spans.forEach(span => {
+                    span.addEventListener('mouseenter', function() {
+                        if (!this.classList.contains('animate')) {
+                            this.classList.add('animate');
+                            // Remove class after animation completes to allow re-triggering
+                            setTimeout(() => {
+                                this.classList.remove('animate');
+                            }, 3000);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <main class="container">
+        <div class="content">
+            <div class="photo-section">
+                <img src="ondrej-machart.png" alt="Ondrej Machart" class="profile-photo">
+            </div>
+            <div class="text-section">
+                <div class="name-header">ONDREJ MACHART</div>
+                <h1 class="main-title">
+                    <span class="animated-text">👋 Head of Product at </span>
+                    <a href="https://livesport.eu/en" class="link-livesport animated-text" target="_blank">Livesport</a><span class="animated-text">, loving husband and dad, travel blogger, photography enthusiast, and AI-powered indie app developer</span>
+                </h1>
+                <p class="subtitle">
+                    Happy to connect via 
+                    <a href="https://www.linkedin.com/in/ondrejmachart/" class="link-linkedin" target="_blank">LinkedIn</a> or 
+                    <a href="mailto:hello@ondrejmachart.com" class="link-email">email</a>. 
+                    Currently helping 100M sports fans around the world read the game like no one else with amazing people at 
+                    <a href="https://livesport.eu/en" class="link-livesport" target="_blank">Livesport</a> and 
+                    vibe-coding a handy family-oriented navigation app, 
+                    <a href="#" class="link-little-explorer" target="_blank">Little Explorer</a>, 
+                    on sleepless nights.
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
