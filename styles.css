@@ -14,35 +14,10 @@ body, html {
 
 body {
     opacity: 0;
-    animation: fadeIn 0.5s ease-in-out forwards;
+    animation: fadeIn 1s ease-in-out forwards;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Typewriter effect */
-.typewriter {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 0;
-    animation: typewriter 3s steps(60) forwards;
-    animation-delay: 0.5s;
-}
-
-.typewriter-subtitle {
-    opacity: 0;
-    animation: fadeInText 0.5s ease-in-out forwards;
-    animation-delay: 3.5s;
-}
-
-@keyframes typewriter {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
-@keyframes fadeInText {
     from { opacity: 0; }
     to { opacity: 1; }
 }
@@ -224,10 +199,6 @@ a:hover::after {
         max-width: none;
     }
     
-    /* Mobile typewriter adjustments */
-    .typewriter {
-        white-space: normal;
-    }
 }
 
 @media (max-width: 480px) {
