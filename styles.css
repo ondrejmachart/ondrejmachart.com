@@ -137,7 +137,7 @@ a:hover::after {
     
     .content {
         flex-direction: column;
-        gap: 2rem;
+        gap: 1rem;
         text-align: center;
     }
     
