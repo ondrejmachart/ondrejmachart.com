@@ -7,7 +7,7 @@
 body, html {
     height: 100%;
     font-family: 'Merriweather', serif;
-    background-color: #0d0d0d;
+    background: #0d0d0d;
     color: #e0e0e0;
     overflow-x: hidden;
 }
@@ -152,7 +152,7 @@ a:hover::after {
         left: 0;
         right: 0;
         height: 25%;
-        background: linear-gradient(to top, rgba(13, 13, 13, 1) 0%, rgba(13, 13, 13, 0) 100%);
+        background: linear-gradient(to top, rgba(36, 36, 62, 1) 0%, rgba(36, 36, 62, 0) 100%);
         pointer-events: none;
     }
     
@@ -195,7 +195,8 @@ a:hover::after {
     100% { color: #f0f0f0; }
 }
 
-/* Dark background gradient */
+/* Beautiful deep gradient */
 body {
-    background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    background-attachment: fixed;
 }
