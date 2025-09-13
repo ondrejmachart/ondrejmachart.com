@@ -142,6 +142,18 @@ a:hover::after {
     
     .photo-section {
         align-self: center;
+        position: relative;
+    }
+    
+    .photo-section::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 25%;
+        background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+        pointer-events: none;
     }
     
     .profile-photo {
