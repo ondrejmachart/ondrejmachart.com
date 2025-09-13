@@ -12,6 +12,16 @@ body, html {
     overflow-x: hidden;
 }
 
+body {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 .container {
     min-height: 100vh;
     display: flex;
@@ -92,8 +102,21 @@ a {
     position: relative;
 }
 
-a:hover {
+a:hover,
+a:active,
+a:focus {
     color: #92cbff;
+    text-shadow: 0 0 8px rgba(107, 182, 255, 0.4);
+}
+
+/* Enhanced mobile touch */
+@media (hover: none) and (pointer: coarse) {
+    a:active {
+        background-color: rgba(107, 182, 255, 0.1);
+        border-radius: 4px;
+        padding: 2px 4px;
+        margin: -2px -4px;
+    }
 }
 
 a::after {
@@ -117,6 +140,20 @@ a:hover::after {
 
 .link-little-explorer {
     font-style: italic;
+}
+
+.footer {
+    position: absolute;
+    bottom: 1rem;
+    right: 2rem;
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.75rem;
+    color: #555;
+    font-weight: 300;
+}
+
+.footer p {
+    margin: 0;
 }
 
 @media (max-width: 1024px) and (min-width: 769px) {
