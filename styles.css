@@ -145,20 +145,11 @@ a:hover::after {
         position: relative;
     }
     
-    .photo-section::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 25%;
-        background: linear-gradient(to top, rgba(22, 22, 29, 1) 0%, rgba(22, 22, 29, 0) 100%);
-        pointer-events: none;
-    }
-    
     .profile-photo {
         width: 250px;
         height: 300px;
+        -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
     }
     
     .main-title {
@@ -175,6 +166,8 @@ a:hover::after {
     .profile-photo {
         width: 200px;
         height: 250px;
+        -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
     }
     
     .main-title {
