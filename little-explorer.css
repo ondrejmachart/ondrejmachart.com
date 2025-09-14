@@ -152,12 +152,16 @@ p {
     display: inline-block;
     padding: 1rem 2rem;
     border-radius: 8px;
-    text-decoration: none;
+    text-decoration: none !important;
     font-weight: 500;
     transition: all 0.3s ease;
     cursor: pointer;
     border: none;
     font-size: 1rem;
+}
+
+.btn:hover, .btn:focus, .btn:active {
+    text-decoration: none !important;
 }
 
 .btn-primary {
@@ -168,17 +172,21 @@ p {
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(107, 182, 255, 0.3);
+    background: linear-gradient(135deg, #5aa3e8 0%, #7bb8f0 100%);
+    text-decoration: none;
 }
 
 .btn-secondary {
     background: transparent;
     color: #6bb6ff;
     border: 2px solid #6bb6ff;
+    text-decoration: none;
 }
 
 .btn-secondary:hover {
     background: #6bb6ff;
     color: #1a1a1a;
+    text-decoration: none;
 }
 
 /* Mobile Responsiveness */
