@@ -45,6 +45,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Rubik:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="little-explorer.css">
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Steps interaction
+            const stepItems = document.querySelectorAll('.step-item');
+            const stepScreenshots = document.querySelectorAll('.step-screenshot');
+            
+            stepItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const stepNumber = this.getAttribute('data-step');
+                    
+                    // Remove active class from all items and screenshots
+                    stepItems.forEach(si => si.classList.remove('active'));
+                    stepScreenshots.forEach(ss => ss.classList.remove('active'));
+                    
+                    // Add active class to clicked item and corresponding screenshot
+                    this.classList.add('active');
+                    document.querySelector(`.step-screenshot[data-step="${stepNumber}"]`).classList.add('active');
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <!-- Hero Section -->
@@ -81,37 +103,73 @@
     <!-- Benefits Section -->
     <section class="benefits">
         <div class="container">
-            <h2 class="section-title">Why families love Little Explorer</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">🧭</div>
-                    <h3>Kid-Friendly Interface</h3>
-                    <p>Large buttons, clear icons, and simple language that even young explorers can understand.</p>
+            <h2 class="section-title">Everything your family needs</h2>
+            
+            <!-- Feature 1: Kid-Friendly -->
+            <div class="feature-showcase">
+                <div class="feature-content">
+                    <div class="feature-badge">Kid-Friendly Interface</div>
+                    <h3>Designed for little hands and curious minds</h3>
+                    <p>Large buttons, clear icons, and simple language that even young explorers can understand. No complicated menus or confusing options – just pure family-friendly navigation.</p>
+                    <ul class="feature-list">
+                        <li>Oversized touch targets for small fingers</li>
+                        <li>High contrast colors for easy reading</li>
+                        <li>Simple, clear language kids understand</li>
+                    </ul>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🛡️</div>
-                    <h3>Safe & Private</h3>
-                    <p>No tracking, no data collection from kids. Your family's privacy is our top priority.</p>
+                <div class="feature-visual">
+                    <div class="app-screenshot placeholder-1">
+                        <!-- App screenshot: Main interface -->
+                    </div>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎯</div>
-                    <h3>Family Destinations</h3>
-                    <p>Pre-loaded with parks, playgrounds, family restaurants, and kid-friendly attractions.</p>
+            </div>
+
+            <!-- Feature 2: Family Destinations -->
+            <div class="feature-showcase reverse">
+                <div class="feature-content">
+                    <div class="feature-badge">Smart Destinations</div>
+                    <h3>Find the perfect spots for family fun</h3>
+                    <p>Pre-loaded with thousands of family-friendly destinations. From playgrounds to ice cream shops, we've curated places that kids actually want to visit.</p>
+                    <div class="destination-tags">
+                        <span class="tag">🎢 Theme Parks</span>
+                        <span class="tag">🏊 Swimming Pools</span>
+                        <span class="tag">🍦 Ice Cream</span>
+                        <span class="tag">🎨 Museums</span>
+                        <span class="tag">🌳 Parks</span>
+                    </div>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚡</div>
-                    <h3>Offline Ready</h3>
-                    <p>Download maps for your area and navigate even without internet connection.</p>
+                <div class="feature-visual">
+                    <div class="app-screenshot placeholder-2">
+                        <!-- App screenshot: Destinations list -->
+                    </div>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎨</div>
-                    <h3>Engaging Experience</h3>
-                    <p>Turn every trip into an adventure with fun visual elements and gentle animations.</p>
+            </div>
+
+            <!-- Feature 3: Safe & Private -->
+            <div class="feature-showcase">
+                <div class="feature-content">
+                    <div class="feature-badge">Safe & Private</div>
+                    <h3>Your family's privacy comes first</h3>
+                    <p>No tracking, no data collection, no invasive permissions. Little Explorer works completely offline when needed, ensuring your family's location stays private.</p>
+                    <div class="privacy-points">
+                        <div class="privacy-point">
+                            <div class="privacy-icon">🛡️</div>
+                            <span>Zero data collection</span>
+                        </div>
+                        <div class="privacy-point">
+                            <div class="privacy-icon">📱</div>
+                            <span>Works offline</span>
+                        </div>
+                        <div class="privacy-point">
+                            <div class="privacy-icon">🔒</div>
+                            <span>No location tracking</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">👨‍👩‍👧‍👦</div>
-                    <h3>Made by Parents</h3>
-                    <p>Built with real family needs in mind, tested by actual parents and kids.</p>
+                <div class="feature-visual">
+                    <div class="app-screenshot placeholder-3">
+                        <!-- App screenshot: Privacy settings -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -120,27 +178,49 @@
     <!-- How It Works Section -->
     <section id="how-it-works" class="how-it-works">
         <div class="container">
-            <h2 class="section-title">How it works</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Set Your Destination</h3>
-                        <p>Choose from family-friendly places or enter any address. The interface is designed for easy family use.</p>
+            <div class="how-it-works-header">
+                <h2 class="section-title">See it in action</h2>
+                <p class="section-subtitle">Three simple steps to stress-free family navigation</p>
+            </div>
+            
+            <div class="steps-showcase">
+                <div class="step-visual">
+                    <div class="step-screenshots">
+                        <div class="step-screenshot active" data-step="1">
+                            <!-- Screenshot: Search/destination -->
+                        </div>
+                        <div class="step-screenshot" data-step="2">
+                            <!-- Screenshot: Navigation in progress -->
+                        </div>
+                        <div class="step-screenshot" data-step="3">
+                            <!-- Screenshot: Arrival/success -->
+                        </div>
                     </div>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Follow Clear Directions</h3>
-                        <p>Large, clear turn-by-turn directions with visual cues that make navigation stress-free.</p>
+                
+                <div class="steps-content">
+                    <div class="step-item active" data-step="1">
+                        <div class="step-number">01</div>
+                        <div class="step-text">
+                            <h3>Find your perfect family spot</h3>
+                            <p>Search through thousands of curated family destinations or simply enter any address. Our smart suggestions know what kids love.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Arrive Happy</h3>
-                        <p>Reach your destination with less stress and more excitement for your family adventure.</p>
+                    
+                    <div class="step-item" data-step="2">
+                        <div class="step-number">02</div>
+                        <div class="step-text">
+                            <h3>Navigate with confidence</h3>
+                            <p>Crystal clear, large turn-by-turn directions with visual landmarks that the whole family can follow easily.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item" data-step="3">
+                        <div class="step-number">03</div>
+                        <div class="step-text">
+                            <h3>Arrive ready to explore</h3>
+                            <p>Less stress getting there means more energy for family fun. Plus, discover nearby attractions for spontaneous adventures.</p>
+                        </div>
                     </div>
                 </div>
             </div>
