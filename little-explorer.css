@@ -184,24 +184,26 @@ section {
 }
 
 .feature-showcase {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     gap: 4rem;
     align-items: center;
     margin-bottom: 6rem;
     padding: 3rem 0;
+    min-height: 600px;
 }
 
 .feature-showcase.reverse {
-    direction: rtl;
-}
-
-.feature-showcase.reverse > * {
-    direction: ltr;
+    flex-direction: row-reverse;
 }
 
 .feature-content {
-    max-width: 500px;
+    flex: 1;
+    max-width: 600px;
+    min-width: 400px;
+}
+
+.feature-visual {
+    flex: 0 0 320px;
 }
 
 .feature-badge {
@@ -302,6 +304,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .app-screenshot {
@@ -359,12 +362,19 @@ section {
 }
 
 .steps-showcase {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     gap: 4rem;
-    align-items: center;
-    max-width: 1000px;
+    align-items: flex-start;
+    max-width: 1200px;
     margin: 0 auto;
+}
+
+.step-visual {
+    flex: 0 0 320px;
+}
+
+.steps-content {
+    flex: 1;
 }
 
 .step-visual {
@@ -428,7 +438,7 @@ section {
 .steps-content {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .step-item {
@@ -619,14 +629,24 @@ section {
     
     /* Feature showcases mobile */
     .feature-showcase {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         gap: 2rem;
         text-align: center;
         margin-bottom: 4rem;
+        min-height: auto;
     }
     
     .feature-showcase.reverse {
-        direction: ltr;
+        flex-direction: column;
+    }
+    
+    .feature-content {
+        min-width: auto;
+        max-width: none;
+    }
+    
+    .feature-visual {
+        flex: none;
     }
     
     .feature-showcase h3 {
@@ -649,8 +669,13 @@ section {
     
     /* Steps showcase mobile */
     .steps-showcase {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         gap: 3rem;
+    }
+    
+    .step-visual {
+        flex: none;
+        order: -1;
     }
     
     .step-screenshots {
