@@ -48,18 +48,29 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Scroll-triggered screenshot changes
+            // Elements
+            const centralPhone = document.querySelector('.central-phone');
             const phoneScreenshot = document.querySelector('.phone-screenshot');
             const featureBlocks = document.querySelectorAll('.feature-block');
+            const featuresSection = document.querySelector('.features-centerpiece');
             
-            // Intersection Observer for scroll triggers
-            const observerOptions = {
+            // Observer for features section visibility
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        centralPhone.classList.add('visible');
+                    } else {
+                        centralPhone.classList.remove('visible');
+                    }
+                });
+            }, {
                 root: null,
-                rootMargin: '-30% 0px -30% 0px',
+                rootMargin: '-10% 0px -10% 0px',
                 threshold: 0
-            };
+            });
             
-            const observer = new IntersectionObserver((entries) => {
+            // Observer for individual feature blocks
+            const featureObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const screenshotClass = entry.target.getAttribute('data-screenshot');
@@ -79,11 +90,16 @@
                         entry.target.classList.add('active');
                     }
                 });
-            }, observerOptions);
+            }, {
+                root: null,
+                rootMargin: '-30% 0px -30% 0px',
+                threshold: 0
+            });
             
-            // Observe all feature blocks
+            // Start observing
+            sectionObserver.observe(featuresSection);
             featureBlocks.forEach(block => {
-                observer.observe(block);
+                featureObserver.observe(block);
             });
         });
     </script>

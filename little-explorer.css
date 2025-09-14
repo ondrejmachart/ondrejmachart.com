@@ -223,7 +223,7 @@ section {
     padding: 0 2rem;
 }
 
-/* Central Phone - Sticky */
+/* Central Phone - Only visible during features section */
 .central-phone {
     position: fixed;
     top: 50%;
@@ -231,6 +231,14 @@ section {
     transform: translate(-50%, -50%);
     z-index: 100;
     pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.central-phone.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 .phone-screenshot {
