@@ -1,0 +1,435 @@
+/* Little Explorer Page Styles */
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.screenshots-section {
+    flex-shrink: 0;
+}
+
+.screenshot-container {
+    position: relative;
+    width: 300px;
+    height: 500px;
+}
+
+.screenshot {
+    position: absolute;
+    width: 250px;
+    height: 440px;
+    background: linear-gradient(135deg, #6bb6ff 0%, #c77dff 100%);
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 8px solid #2a2a2a;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.screenshot-1 {
+    top: 0;
+    left: 0;
+    z-index: 2;
+    animation: cardAnimation1 1.5s ease-out forwards;
+    animation-delay: 0.5s;
+    transform: rotate(0deg) translate(0, 0);
+}
+
+.screenshot-2 {
+    top: 20px;
+    left: 30px;
+    z-index: 1;
+    animation: cardAnimation2 1.5s ease-out forwards;
+    animation-delay: 0.7s;
+    transform: rotate(0deg) translate(0, 0);
+}
+
+@keyframes cardAnimation1 {
+    0% { transform: rotate(0deg) translate(0, 0); }
+    100% { transform: rotate(-8deg) translate(-15px, 0); }
+}
+
+@keyframes cardAnimation2 {
+    0% { transform: rotate(0deg) translate(0, 0); }
+    100% { transform: rotate(12deg) translate(20px, 0); }
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.back-link {
+    margin-bottom: 2rem;
+}
+
+.back-link a {
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.9rem;
+    color: #999;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-link a:hover {
+    color: #6bb6ff;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin-bottom: 1rem;
+    font-family: 'Merriweather', serif;
+}
+
+.hero-subtitle {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.5rem;
+    color: #6bb6ff;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+.hero-description {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.1rem;
+    color: #b3b3b3;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+/* Buttons */
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #6bb6ff 0%, #92cbff 100%);
+    color: #1a1a1a;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(107, 182, 255, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #6bb6ff;
+    border: 2px solid #6bb6ff;
+}
+
+.btn-secondary:hover {
+    background: #6bb6ff;
+    color: #1a1a1a;
+}
+
+.btn-large {
+    padding: 1.25rem 3rem;
+    font-size: 1.1rem;
+}
+
+/* Sections */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-family: 'Merriweather', serif;
+}
+
+/* Benefits Section */
+.benefits {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.benefit-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.benefit-card h3 {
+    font-size: 1.3rem;
+    color: #f0f0f0;
+    margin-bottom: 1rem;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+}
+
+.benefit-card p {
+    color: #b3b3b3;
+    line-height: 1.5;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+}
+
+/* How It Works Section */
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #6bb6ff 0%, #c77dff 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    flex-shrink: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+.step-content h3 {
+    font-size: 1.5rem;
+    color: #f0f0f0;
+    margin-bottom: 0.5rem;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+}
+
+.step-content p {
+    color: #b3b3b3;
+    line-height: 1.6;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+}
+
+/* Story Section */
+.story {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.story-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.story-text {
+    font-family: 'Rubik', sans-serif;
+}
+
+.story-intro {
+    font-size: 1.3rem;
+    color: #6bb6ff;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.story-text p {
+    font-size: 1.1rem;
+    color: #b3b3b3;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+.story-signature {
+    margin-top: 2rem;
+    text-align: right;
+}
+
+.story-signature em {
+    color: #999;
+    font-size: 1rem;
+}
+
+/* Download CTA Section */
+.download-cta {
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    color: #f0f0f0;
+    margin-bottom: 1rem;
+    font-family: 'Merriweather', serif;
+}
+
+.cta-content > p {
+    font-size: 1.2rem;
+    color: #b3b3b3;
+    margin-bottom: 2.5rem;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+}
+
+.cta-note {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #999;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+}
+
+/* Footer */
+.footer-main {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-left p {
+    color: #666;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.footer-right {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-right a {
+    color: #999;
+    text-decoration: none;
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    font-weight: 300;
+}
+
+.footer-right a:hover {
+    color: #6bb6ff;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero {
+        padding: 1rem;
+        min-height: auto;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .screenshot-container {
+        width: 250px;
+        height: 400px;
+    }
+    
+    .screenshot {
+        width: 200px;
+        height: 350px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cta-buttons {
+        justify-content: center;
+    }
+    
+    .footer-content {
+        text-align: center;
+        flex-direction: column;
+    }
+    
+    section {
+        padding: 3rem 0;
+    }
+}
