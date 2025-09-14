@@ -164,6 +164,14 @@ p {
     text-decoration: none !important;
 }
 
+.btn::after {
+    display: none !important;
+}
+
+.btn:hover::after {
+    display: none !important;
+}
+
 .btn-primary {
     background: linear-gradient(135deg, #6bb6ff 0%, #92cbff 100%);
     color: #1a1a1a;
@@ -172,8 +180,9 @@ p {
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(107, 182, 255, 0.3);
-    background: linear-gradient(135deg, #5aa3e8 0%, #7bb8f0 100%);
-    text-decoration: none;
+    background: linear-gradient(135deg, #4a8ed9 0%, #6ba4e8 100%);
+    color: #ffffff;
+    text-decoration: none !important;
 }
 
 .btn-secondary {
