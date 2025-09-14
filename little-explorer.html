@@ -45,64 +45,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Rubik:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="little-explorer.css">
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Elements
-            const centralPhone = document.querySelector('.central-phone');
-            const phoneScreenshot = document.querySelector('.phone-screenshot');
-            const featureBlocks = document.querySelectorAll('.feature-block');
-            const featuresSection = document.querySelector('.features-centerpiece');
-            
-            // Observer for features section visibility
-            const sectionObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        centralPhone.classList.add('visible');
-                    } else {
-                        centralPhone.classList.remove('visible');
-                    }
-                });
-            }, {
-                root: null,
-                rootMargin: '-10% 0px -10% 0px',
-                threshold: 0
-            });
-            
-            // Observer for individual feature blocks
-            const featureObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const screenshotClass = entry.target.getAttribute('data-screenshot');
-                        
-                        // Remove all screenshot classes
-                        phoneScreenshot.className = 'phone-screenshot';
-                        
-                        // Add the new screenshot class
-                        if (screenshotClass) {
-                            phoneScreenshot.classList.add(screenshotClass);
-                        }
-                        
-                        // Remove active from all feature blocks
-                        featureBlocks.forEach(block => block.classList.remove('active'));
-                        
-                        // Add active to current feature block
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, {
-                root: null,
-                rootMargin: '-30% 0px -30% 0px',
-                threshold: 0
-            });
-            
-            // Start observing
-            sectionObserver.observe(featuresSection);
-            featureBlocks.forEach(block => {
-                featureObserver.observe(block);
-            });
-        });
-    </script>
 </head>
 <body>
     <!-- Hero Section -->
@@ -136,87 +78,116 @@
         </div>
     </section>
 
-    <!-- Features Centerpiece Section -->
-    <section id="features" class="features-centerpiece">
-        <div class="centerpiece-wrapper">
-            <!-- Central Fixed Phone -->
-            <div class="central-phone">
-                <div class="phone-screenshot screenshot-1">
-                    <!-- Dynamic screenshot changes based on scroll -->
-                </div>
-            </div>
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Everything your family needs</h2>
             
-            <!-- Feature Content Blocks - Alternating Left/Right -->
-            <div class="feature-blocks">
-                <!-- Feature 1: Kid-Friendly (Left) -->
-                <div class="feature-block" data-screenshot="screenshot-1">
-                    <div class="feature-badge">Kid-Friendly Interface</div>
-                    <h3>Designed for little hands and curious minds</h3>
-                    <p>Large buttons, clear icons, and simple language that even young explorers can understand. No complicated menus or confusing options – just pure family-friendly navigation.</p>
-                    <ul class="feature-list">
-                        <li>Oversized touch targets for small fingers</li>
-                        <li>High contrast colors for easy reading</li>
-                        <li>Simple, clear language kids understand</li>
-                    </ul>
-                </div>
-                
-                <!-- Feature 2: Smart Destinations (Right) -->
-                <div class="feature-block" data-screenshot="screenshot-2">
-                    <div class="feature-badge">Smart Destinations</div>
-                    <h3>Find the perfect spots for family fun</h3>
-                    <p>Pre-loaded with thousands of family-friendly destinations. From playgrounds to ice cream shops, we've curated places that kids actually want to visit.</p>
-                    <div class="destination-tags">
-                        <span class="tag">🎢 Theme Parks</span>
-                        <span class="tag">🏊 Swimming Pools</span>
-                        <span class="tag">🍦 Ice Cream</span>
-                        <span class="tag">🎨 Museums</span>
-                        <span class="tag">🌳 Parks</span>
+            <div class="features-grid">
+                <!-- Feature 1: Kid-Friendly -->
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <div class="feature-badge">Kid-Friendly Interface</div>
+                        <h3>Designed for little hands and curious minds</h3>
+                        <p>Large buttons, clear icons, and simple language that even young explorers can understand. No complicated menus or confusing options – just pure family-friendly navigation.</p>
+                        <ul class="feature-list">
+                            <li>Oversized touch targets for small fingers</li>
+                            <li>High contrast colors for easy reading</li>
+                            <li>Simple, clear language kids understand</li>
+                        </ul>
                     </div>
-                </div>
-                
-                <!-- Feature 3: Safe & Private (Left) -->
-                <div class="feature-block" data-screenshot="screenshot-3">
-                    <div class="feature-badge">Safe & Private</div>
-                    <h3>Your family's privacy comes first</h3>
-                    <p>No tracking, no data collection, no invasive permissions. Little Explorer works completely offline when needed, ensuring your family's location stays private.</p>
-                    <div class="privacy-points">
-                        <div class="privacy-point">
-                            <div class="privacy-icon">🛡️</div>
-                            <span>Zero data collection</span>
-                        </div>
-                        <div class="privacy-point">
-                            <div class="privacy-icon">📱</div>
-                            <span>Works offline</span>
-                        </div>
-                        <div class="privacy-point">
-                            <div class="privacy-icon">🔒</div>
-                            <span>No location tracking</span>
+                    <div class="feature-visual">
+                        <div class="app-screenshot placeholder-1">
+                            <!-- App screenshot: Main interface -->
                         </div>
                     </div>
                 </div>
-                
-                <!-- Feature 4: Family Planning (Right) -->
-                <div class="feature-block" data-screenshot="screenshot-4">
-                    <div class="feature-badge">Family Planning</div>
-                    <h3>Plan adventures together</h3>
-                    <p>Save favorite locations, create custom trip routes, and share discoveries with family members. Make every outing an opportunity for bonding and exploration.</p>
-                    <ul class="feature-list">
-                        <li>Save and organize favorite spots</li>
-                        <li>Multi-stop trip planning</li>
-                        <li>Family sharing features</li>
-                    </ul>
+
+                <!-- Feature 2: Smart Destinations -->
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <div class="feature-badge">Smart Destinations</div>
+                        <h3>Find the perfect spots for family fun</h3>
+                        <p>Pre-loaded with thousands of family-friendly destinations. From playgrounds to ice cream shops, we've curated places that kids actually want to visit.</p>
+                        <div class="destination-tags">
+                            <span class="tag">🎢 Theme Parks</span>
+                            <span class="tag">🏊 Swimming Pools</span>
+                            <span class="tag">🍦 Ice Cream</span>
+                            <span class="tag">🎨 Museums</span>
+                            <span class="tag">🌳 Parks</span>
+                        </div>
+                    </div>
+                    <div class="feature-visual">
+                        <div class="app-screenshot placeholder-2">
+                            <!-- App screenshot: Destinations list -->
+                        </div>
+                    </div>
                 </div>
-                
-                <!-- Feature 5: Crystal Clear Directions (Left) -->
-                <div class="feature-block" data-screenshot="screenshot-5">
-                    <div class="feature-badge">Crystal Clear Directions</div>
-                    <h3>Navigate with confidence</h3>
-                    <p>Turn-by-turn directions with visual landmarks that the whole family can follow easily. Large, clear text and intuitive icons make every journey stress-free.</p>
-                    <ul class="feature-list">
-                        <li>Visual landmark recognition</li>
-                        <li>Voice guidance for hands-free navigation</li>
-                        <li>Real-time traffic updates</li>
-                    </ul>
+
+                <!-- Feature 3: Safe & Private -->
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <div class="feature-badge">Safe & Private</div>
+                        <h3>Your family's privacy comes first</h3>
+                        <p>No tracking, no data collection, no invasive permissions. Little Explorer works completely offline when needed, ensuring your family's location stays private.</p>
+                        <div class="privacy-points">
+                            <div class="privacy-point">
+                                <div class="privacy-icon">🛡️</div>
+                                <span>Zero data collection</span>
+                            </div>
+                            <div class="privacy-point">
+                                <div class="privacy-icon">📱</div>
+                                <span>Works offline</span>
+                            </div>
+                            <div class="privacy-point">
+                                <div class="privacy-icon">🔒</div>
+                                <span>No location tracking</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-visual">
+                        <div class="app-screenshot placeholder-3">
+                            <!-- App screenshot: Privacy settings -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 4: Family Planning -->
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <div class="feature-badge">Family Planning</div>
+                        <h3>Plan adventures together</h3>
+                        <p>Save favorite locations, create custom trip routes, and share discoveries with family members. Make every outing an opportunity for bonding and exploration.</p>
+                        <ul class="feature-list">
+                            <li>Save and organize favorite spots</li>
+                            <li>Multi-stop trip planning</li>
+                            <li>Family sharing features</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual">
+                        <div class="app-screenshot placeholder-4">
+                            <!-- App screenshot: Trip planning -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 5: Crystal Clear Directions -->
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <div class="feature-badge">Crystal Clear Directions</div>
+                        <h3>Navigate with confidence</h3>
+                        <p>Turn-by-turn directions with visual landmarks that the whole family can follow easily. Large, clear text and intuitive icons make every journey stress-free.</p>
+                        <ul class="feature-list">
+                            <li>Visual landmark recognition</li>
+                            <li>Voice guidance for hands-free navigation</li>
+                            <li>Real-time traffic updates</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual">
+                        <div class="app-screenshot placeholder-5">
+                            <!-- App screenshot: Navigation -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

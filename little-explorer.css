@@ -1,4 +1,4 @@
-/* Little Explorer Page - Proper Centerpiece Design */
+/* Little Explorer Page - Clean Professional Design */
 
 /* Reset and Base Styles */
 * {
@@ -32,7 +32,7 @@ h2 {
     font-size: clamp(2rem, 4vw, 2.5rem);
     color: #f0f0f0;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 h3 {
@@ -55,7 +55,7 @@ p {
 }
 
 section {
-    padding: 3rem 0;
+    padding: 4rem 0;
 }
 
 /* Hero Section */
@@ -208,120 +208,41 @@ section {
     font-size: 1.1rem;
 }
 
-/* CENTERPIECE FEATURES SECTION */
-.features-centerpiece {
-    position: relative;
-    min-height: 200vh;
-    padding: 5rem 0;
+/* Features Section - Clean Grid Layout */
+.features {
     background: rgba(255, 255, 255, 0.02);
+    padding: 5rem 0;
 }
 
-.centerpiece-wrapper {
-    position: relative;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    margin-top: 2rem;
 }
 
-/* Central Phone - Only visible during features section */
-.central-phone {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100;
-    pointer-events: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-.central-phone.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.phone-screenshot {
-    width: 320px;
-    height: 640px;
-    background: linear-gradient(135deg, #6bb6ff 0%, #c77dff 100%);
-    border-radius: 30px;
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
-    border: 10px solid #2a2a2a;
-    display: flex;
+.feature-item {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 4rem;
     align-items: center;
-    justify-content: center;
-    transition: all 0.6s ease;
-    position: relative;
-    overflow: hidden;
+    padding: 2rem 0;
 }
 
-.phone-screenshot::before {
-    content: 'App Screenshot';
-    color: rgba(255, 255, 255, 0.3);
-    font-weight: 300;
-    font-size: 1rem;
-    text-align: center;
+.feature-item:nth-child(even) {
+    grid-template-columns: 300px 1fr;
 }
 
-/* Screenshot variants */
-.phone-screenshot.screenshot-1 {
-    background: linear-gradient(135deg, #6bb6ff 0%, #92cbff 100%);
+.feature-item:nth-child(even) .feature-content {
+    order: 2;
 }
 
-.phone-screenshot.screenshot-2 {
-    background: linear-gradient(135deg, #c77dff 0%, #e77dff 100%);
+.feature-item:nth-child(even) .feature-visual {
+    order: 1;
 }
 
-.phone-screenshot.screenshot-3 {
-    background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
-}
-
-.phone-screenshot.screenshot-4 {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ffa07a 100%);
-}
-
-.phone-screenshot.screenshot-5 {
-    background: linear-gradient(135deg, #98fb98 0%, #90ee90 100%);
-}
-
-/* Feature Content Blocks */
-.feature-blocks {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 15rem;
-    padding: 10rem 0;
-    z-index: 1;
-}
-
-.feature-block {
-    max-width: 500px;
-    padding: 3rem;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.4s ease;
-    opacity: 0.7;
-}
-
-.feature-block.active {
-    background: rgba(107, 182, 255, 0.08);
-    border-color: rgba(107, 182, 255, 0.3);
-    transform: scale(1.02);
-    opacity: 1;
-    box-shadow: 0 20px 40px rgba(107, 182, 255, 0.1);
-}
-
-/* Alternating positions */
-.feature-block:nth-child(odd) {
-    margin-left: 0;
-    margin-right: auto;
-}
-
-.feature-block:nth-child(even) {
-    margin-left: auto;
-    margin-right: 0;
+.feature-content {
+    max-width: 600px;
 }
 
 .feature-badge {
@@ -337,12 +258,12 @@ section {
     letter-spacing: 0.5px;
 }
 
-.feature-block h3 {
+.feature-item h3 {
     margin-bottom: 1.5rem;
     font-size: 1.6rem;
 }
 
-.feature-block p {
+.feature-item p {
     margin-bottom: 2rem;
     font-size: 1.05rem;
     line-height: 1.6;
@@ -402,6 +323,55 @@ section {
     width: 1.8rem;
 }
 
+/* Feature Visuals */
+.feature-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-screenshot {
+    width: 280px;
+    height: 560px;
+    background: linear-gradient(135deg, #6bb6ff 0%, #c77dff 50%, #ff6b6b 100%);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    border: 6px solid #2a2a2a;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-screenshot::before {
+    content: 'App Screenshot';
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 300;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.placeholder-1 {
+    background: linear-gradient(135deg, #6bb6ff 0%, #92cbff 100%);
+}
+
+.placeholder-2 {
+    background: linear-gradient(135deg, #c77dff 0%, #e77dff 100%);
+}
+
+.placeholder-3 {
+    background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+}
+
+.placeholder-4 {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa07a 100%);
+}
+
+.placeholder-5 {
+    background: linear-gradient(135deg, #98fb98 0%, #90ee90 100%);
+}
+
 /* Story Section */
 .story {
     background: rgba(255, 255, 255, 0.02);
@@ -439,7 +409,7 @@ section {
 /* Download CTA */
 .download-cta {
     text-align: center;
-    padding: 4rem 0 3rem 0;
+    padding: 4rem 0;
 }
 
 .cta-content h2 {
@@ -504,32 +474,26 @@ section {
 
 /* Mobile Responsiveness */
 @media (max-width: 1024px) {
-    .central-phone {
-        position: static;
-        transform: none;
-        display: flex;
-        justify-content: center;
-        margin: 3rem 0;
+    .feature-item {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
     }
     
-    .phone-screenshot {
-        width: 280px;
-        height: 560px;
+    .feature-item:nth-child(even) {
+        grid-template-columns: 1fr;
     }
     
-    .features-centerpiece {
-        min-height: auto;
+    .feature-item:nth-child(even) .feature-content {
+        order: 1;
     }
     
-    .feature-blocks {
-        gap: 4rem;
-        padding: 3rem 0;
+    .feature-item:nth-child(even) .feature-visual {
+        order: -1;
     }
     
-    .feature-block:nth-child(odd),
-    .feature-block:nth-child(even) {
-        margin-left: auto;
-        margin-right: auto;
+    .feature-visual {
+        order: -1;
     }
 }
 
@@ -539,7 +503,7 @@ section {
     }
     
     section {
-        padding: 2rem 0;
+        padding: 3rem 0;
     }
     
     .hero {
@@ -568,18 +532,18 @@ section {
         height: 440px;
     }
     
-    .centerpiece-wrapper {
-        padding: 0 1.5rem;
-    }
-    
-    .phone-screenshot {
+    .app-screenshot {
         width: 240px;
-        height: 480px;
+        height: 440px;
     }
     
-    .feature-block {
-        padding: 2rem;
-        max-width: none;
+    .feature-content {
+        padding: 0;
+    }
+    
+    .privacy-points {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
     
     .cta-buttons {
@@ -613,16 +577,8 @@ section {
         height: 360px;
     }
     
-    .phone-screenshot {
+    .app-screenshot {
         width: 200px;
-        height: 400px;
-    }
-    
-    .centerpiece-wrapper {
-        padding: 0 1rem;
-    }
-    
-    .feature-block {
-        padding: 1.5rem;
+        height: 360px;
     }
 }
