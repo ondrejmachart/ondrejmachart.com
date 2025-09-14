@@ -48,14 +48,14 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Scroll-based screenshot changes
-            const centerpieceScreenshot = document.querySelector('.centerpiece-screenshot');
-            const featureContents = document.querySelectorAll('.feature-content');
+            // Scroll-triggered screenshot changes
+            const phoneScreenshot = document.querySelector('.phone-screenshot');
+            const featureBlocks = document.querySelectorAll('.feature-block');
             
-            // Intersection Observer for scroll-triggered effects
+            // Intersection Observer for scroll triggers
             const observerOptions = {
                 root: null,
-                rootMargin: '-40% 0px -40% 0px',
+                rootMargin: '-30% 0px -30% 0px',
                 threshold: 0
             };
             
@@ -65,25 +65,25 @@
                         const screenshotClass = entry.target.getAttribute('data-screenshot');
                         
                         // Remove all screenshot classes
-                        centerpieceScreenshot.className = 'centerpiece-screenshot';
+                        phoneScreenshot.className = 'phone-screenshot';
                         
                         // Add the new screenshot class
                         if (screenshotClass) {
-                            centerpieceScreenshot.classList.add(screenshotClass);
+                            phoneScreenshot.classList.add(screenshotClass);
                         }
                         
-                        // Remove active from all feature contents
-                        featureContents.forEach(fc => fc.classList.remove('active'));
+                        // Remove active from all feature blocks
+                        featureBlocks.forEach(block => block.classList.remove('active'));
                         
-                        // Add active to current feature content
+                        // Add active to current feature block
                         entry.target.classList.add('active');
                     }
                 });
             }, observerOptions);
             
-            // Observe all feature content sections
-            featureContents.forEach(content => {
-                observer.observe(content);
+            // Observe all feature blocks
+            featureBlocks.forEach(block => {
+                observer.observe(block);
             });
         });
     </script>
@@ -120,13 +120,20 @@
         </div>
     </section>
 
-    <!-- Scroll-Based Centerpiece Section -->
-    <section id="features" class="centerpiece-section">
-        <div class="centerpiece-container">
-            <!-- Left Content Column -->
-            <div class="content-sections content-left">
-                <!-- Feature 1: Kid-Friendly -->
-                <div class="feature-content" data-screenshot="screenshot-1">
+    <!-- Features Centerpiece Section -->
+    <section id="features" class="features-centerpiece">
+        <div class="centerpiece-wrapper">
+            <!-- Central Fixed Phone -->
+            <div class="central-phone">
+                <div class="phone-screenshot screenshot-1">
+                    <!-- Dynamic screenshot changes based on scroll -->
+                </div>
+            </div>
+            
+            <!-- Feature Content Blocks - Alternating Left/Right -->
+            <div class="feature-blocks">
+                <!-- Feature 1: Kid-Friendly (Left) -->
+                <div class="feature-block" data-screenshot="screenshot-1">
                     <div class="feature-badge">Kid-Friendly Interface</div>
                     <h3>Designed for little hands and curious minds</h3>
                     <p>Large buttons, clear icons, and simple language that even young explorers can understand. No complicated menus or confusing options – just pure family-friendly navigation.</p>
@@ -137,8 +144,22 @@
                     </ul>
                 </div>
                 
-                <!-- Feature 3: Safe & Private -->
-                <div class="feature-content" data-screenshot="screenshot-3">
+                <!-- Feature 2: Smart Destinations (Right) -->
+                <div class="feature-block" data-screenshot="screenshot-2">
+                    <div class="feature-badge">Smart Destinations</div>
+                    <h3>Find the perfect spots for family fun</h3>
+                    <p>Pre-loaded with thousands of family-friendly destinations. From playgrounds to ice cream shops, we've curated places that kids actually want to visit.</p>
+                    <div class="destination-tags">
+                        <span class="tag">🎢 Theme Parks</span>
+                        <span class="tag">🏊 Swimming Pools</span>
+                        <span class="tag">🍦 Ice Cream</span>
+                        <span class="tag">🎨 Museums</span>
+                        <span class="tag">🌳 Parks</span>
+                    </div>
+                </div>
+                
+                <!-- Feature 3: Safe & Private (Left) -->
+                <div class="feature-block" data-screenshot="screenshot-3">
                     <div class="feature-badge">Safe & Private</div>
                     <h3>Your family's privacy comes first</h3>
                     <p>No tracking, no data collection, no invasive permissions. Little Explorer works completely offline when needed, ensuring your family's location stays private.</p>
@@ -158,44 +179,8 @@
                     </div>
                 </div>
                 
-                <!-- Feature 5: Easy Navigation -->
-                <div class="feature-content" data-screenshot="screenshot-5">
-                    <div class="feature-badge">Crystal Clear Directions</div>
-                    <h3>Navigate with confidence</h3>
-                    <p>Turn-by-turn directions with visual landmarks that the whole family can follow easily. Large, clear text and intuitive icons make every journey stress-free.</p>
-                    <ul class="feature-list">
-                        <li>Visual landmark recognition</li>
-                        <li>Voice guidance for hands-free navigation</li>
-                        <li>Real-time traffic updates</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Central Phone Screenshot -->
-            <div class="centerpiece-phone">
-                <div class="centerpiece-screenshot screenshot-1">
-                    <!-- Dynamic screenshot changes based on scroll -->
-                </div>
-            </div>
-            
-            <!-- Right Content Column -->
-            <div class="content-sections content-right">
-                <!-- Feature 2: Family Destinations -->
-                <div class="feature-content" data-screenshot="screenshot-2">
-                    <div class="feature-badge">Smart Destinations</div>
-                    <h3>Find the perfect spots for family fun</h3>
-                    <p>Pre-loaded with thousands of family-friendly destinations. From playgrounds to ice cream shops, we've curated places that kids actually want to visit.</p>
-                    <div class="destination-tags">
-                        <span class="tag">🎢 Theme Parks</span>
-                        <span class="tag">🏊 Swimming Pools</span>
-                        <span class="tag">🍦 Ice Cream</span>
-                        <span class="tag">🎨 Museums</span>
-                        <span class="tag">🌳 Parks</span>
-                    </div>
-                </div>
-                
-                <!-- Feature 4: Family Planning -->
-                <div class="feature-content" data-screenshot="screenshot-4">
+                <!-- Feature 4: Family Planning (Right) -->
+                <div class="feature-block" data-screenshot="screenshot-4">
                     <div class="feature-badge">Family Planning</div>
                     <h3>Plan adventures together</h3>
                     <p>Save favorite locations, create custom trip routes, and share discoveries with family members. Make every outing an opportunity for bonding and exploration.</p>
@@ -203,6 +188,18 @@
                         <li>Save and organize favorite spots</li>
                         <li>Multi-stop trip planning</li>
                         <li>Family sharing features</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 5: Crystal Clear Directions (Left) -->
+                <div class="feature-block" data-screenshot="screenshot-5">
+                    <div class="feature-badge">Crystal Clear Directions</div>
+                    <h3>Navigate with confidence</h3>
+                    <p>Turn-by-turn directions with visual landmarks that the whole family can follow easily. Large, clear text and intuitive icons make every journey stress-free.</p>
+                    <ul class="feature-list">
+                        <li>Visual landmark recognition</li>
+                        <li>Voice guidance for hands-free navigation</li>
+                        <li>Real-time traffic updates</li>
                     </ul>
                 </div>
             </div>

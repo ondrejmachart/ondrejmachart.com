@@ -1,4 +1,4 @@
-/* Little Explorer Page - Scroll-Based Centerpiece Design */
+/* Little Explorer Page - Proper Centerpiece Design */
 
 /* Reset and Base Styles */
 * {
@@ -15,7 +15,7 @@ body {
     background-attachment: fixed;
 }
 
-/* Typography Hierarchy */
+/* Typography */
 h1, h2, h3 {
     font-family: 'Merriweather', serif;
     font-weight: 700;
@@ -47,7 +47,7 @@ p {
     margin-bottom: 1rem;
 }
 
-/* Container and Layout */
+/* Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -56,7 +56,6 @@ p {
 
 section {
     padding: 3rem 0;
-    min-height: auto;
 }
 
 /* Hero Section */
@@ -114,7 +113,7 @@ section {
     line-height: 1.7;
 }
 
-/* Screenshots in Hero */
+/* Hero Screenshots */
 .screenshots-section {
     display: flex;
     justify-content: center;
@@ -209,94 +208,119 @@ section {
     font-size: 1.1rem;
 }
 
-/* Scroll-Based Centerpiece Section */
-.centerpiece-section {
+/* CENTERPIECE FEATURES SECTION */
+.features-centerpiece {
     position: relative;
+    min-height: 200vh;
     padding: 5rem 0;
     background: rgba(255, 255, 255, 0.02);
 }
 
-.centerpiece-container {
-    display: grid;
-    grid-template-columns: 1fr 350px 1fr;
-    gap: 3rem;
+.centerpiece-wrapper {
+    position: relative;
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
-    align-items: start;
 }
 
-.centerpiece-phone {
-    position: sticky;
+/* Central Phone - Sticky */
+.central-phone {
+    position: fixed;
     top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: center;
-    z-index: 10;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    pointer-events: none;
 }
 
-.centerpiece-screenshot {
-    width: 300px;
-    height: 600px;
+.phone-screenshot {
+    width: 320px;
+    height: 640px;
     background: linear-gradient(135deg, #6bb6ff 0%, #c77dff 100%);
-    border-radius: 25px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-    border: 8px solid #2a2a2a;
-    position: relative;
-    overflow: hidden;
+    border-radius: 30px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+    border: 10px solid #2a2a2a;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.5s ease;
+    transition: all 0.6s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.centerpiece-screenshot::before {
+.phone-screenshot::before {
     content: 'App Screenshot';
     color: rgba(255, 255, 255, 0.3);
     font-weight: 300;
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-align: center;
 }
 
-/* Content Sections that trigger screenshot changes */
-.content-sections {
+/* Screenshot variants */
+.phone-screenshot.screenshot-1 {
+    background: linear-gradient(135deg, #6bb6ff 0%, #92cbff 100%);
+}
+
+.phone-screenshot.screenshot-2 {
+    background: linear-gradient(135deg, #c77dff 0%, #e77dff 100%);
+}
+
+.phone-screenshot.screenshot-3 {
+    background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+}
+
+.phone-screenshot.screenshot-4 {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa07a 100%);
+}
+
+.phone-screenshot.screenshot-5 {
+    background: linear-gradient(135deg, #98fb98 0%, #90ee90 100%);
+}
+
+/* Feature Content Blocks */
+.feature-blocks {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 8rem;
+    gap: 15rem;
+    padding: 10rem 0;
+    z-index: 1;
 }
 
-.content-left {
-    grid-column: 1;
-}
-
-.content-right {
-    grid-column: 3;
-}
-
-.feature-content {
+.feature-block {
     max-width: 500px;
-    padding: 2rem;
+    padding: 3rem;
     background: rgba(255, 255, 255, 0.03);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    opacity: 0.7;
 }
 
-.feature-content.active {
-    background: rgba(107, 182, 255, 0.05);
-    border-color: rgba(107, 182, 255, 0.2);
+.feature-block.active {
+    background: rgba(107, 182, 255, 0.08);
+    border-color: rgba(107, 182, 255, 0.3);
     transform: scale(1.02);
+    opacity: 1;
+    box-shadow: 0 20px 40px rgba(107, 182, 255, 0.1);
 }
 
-.content-right .feature-content {
+/* Alternating positions */
+.feature-block:nth-child(odd) {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.feature-block:nth-child(even) {
     margin-left: auto;
+    margin-right: 0;
 }
 
 .feature-badge {
     display: inline-block;
     background: linear-gradient(135deg, #6bb6ff 0%, #c77dff 100%);
     color: #1a1a1a;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 20px;
     font-weight: 600;
     font-size: 0.85rem;
@@ -305,14 +329,15 @@ section {
     letter-spacing: 0.5px;
 }
 
-.feature-content h3 {
+.feature-block h3 {
     margin-bottom: 1.5rem;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 }
 
-.feature-content p {
+.feature-block p {
     margin-bottom: 2rem;
-    font-size: 1rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
 }
 
 .feature-list {
@@ -369,27 +394,6 @@ section {
     width: 1.8rem;
 }
 
-/* Screenshot variants for scroll triggers */
-.centerpiece-screenshot.screenshot-1 {
-    background: linear-gradient(135deg, #6bb6ff 0%, #92cbff 100%);
-}
-
-.centerpiece-screenshot.screenshot-2 {
-    background: linear-gradient(135deg, #c77dff 0%, #e77dff 100%);
-}
-
-.centerpiece-screenshot.screenshot-3 {
-    background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
-}
-
-.centerpiece-screenshot.screenshot-4 {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ffa07a 100%);
-}
-
-.centerpiece-screenshot.screenshot-5 {
-    background: linear-gradient(135deg, #98fb98 0%, #90ee90 100%);
-}
-
 /* Story Section */
 .story {
     background: rgba(255, 255, 255, 0.02);
@@ -424,7 +428,7 @@ section {
     font-size: 1rem;
 }
 
-/* Download CTA Section */
+/* Download CTA */
 .download-cta {
     text-align: center;
     padding: 4rem 0 3rem 0;
@@ -492,34 +496,32 @@ section {
 
 /* Mobile Responsiveness */
 @media (max-width: 1024px) {
-    .centerpiece-container {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-        text-align: center;
-    }
-    
-    .centerpiece-phone {
+    .central-phone {
         position: static;
         transform: none;
-        order: -1;
-        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        margin: 3rem 0;
     }
     
-    .content-sections {
-        gap: 4rem;
-    }
-    
-    .content-left, .content-right {
-        grid-column: 1;
-    }
-    
-    .content-right .feature-content {
-        margin-left: 0;
-    }
-    
-    .centerpiece-screenshot {
+    .phone-screenshot {
         width: 280px;
         height: 560px;
+    }
+    
+    .features-centerpiece {
+        min-height: auto;
+    }
+    
+    .feature-blocks {
+        gap: 4rem;
+        padding: 3rem 0;
+    }
+    
+    .feature-block:nth-child(odd),
+    .feature-block:nth-child(even) {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -558,18 +560,18 @@ section {
         height: 440px;
     }
     
-    .centerpiece-container {
+    .centerpiece-wrapper {
         padding: 0 1.5rem;
-        gap: 3rem;
     }
     
-    .centerpiece-screenshot {
+    .phone-screenshot {
         width: 240px;
         height: 480px;
     }
     
-    .feature-content {
-        padding: 1.5rem;
+    .feature-block {
+        padding: 2rem;
+        max-width: none;
     }
     
     .cta-buttons {
@@ -580,10 +582,6 @@ section {
     .footer-content {
         text-align: center;
         flex-direction: column;
-    }
-    
-    .download-cta {
-        padding: 3rem 0 2rem 0;
     }
 }
 
@@ -607,12 +605,16 @@ section {
         height: 360px;
     }
     
-    .centerpiece-screenshot {
+    .phone-screenshot {
         width: 200px;
         height: 400px;
     }
     
-    .centerpiece-container {
+    .centerpiece-wrapper {
         padding: 0 1rem;
+    }
+    
+    .feature-block {
+        padding: 1.5rem;
     }
 }
