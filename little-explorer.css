@@ -97,7 +97,7 @@ p {
 
 .screenshot-container {
     position: relative;
-    width: 320px;
+    width: 420px;
     height: 600px;
 }
 
@@ -105,11 +105,11 @@ p {
     position: absolute;
     width: 280px;
     height: 560px;
-    border-radius: 25px;
+    border-radius: 30px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    border: 8px solid #2a2a2a;
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
+    padding: 0;
 }
 
 .screenshot-img {
@@ -128,8 +128,8 @@ p {
 }
 
 .screenshot-2 {
-    top: 40px;
-    left: 60px;
+    top: 20px;
+    left: 140px;
     z-index: 1;
     animation: cardAnimation2 1.5s ease-out forwards;
     animation-delay: 0.7s;
@@ -137,12 +137,12 @@ p {
 
 @keyframes cardAnimation1 {
     0% { transform: rotate(0deg) translate(0, 0); }
-    100% { transform: rotate(-8deg) translate(-15px, 0); }
+    100% { transform: rotate(-10deg) translate(-30px, 10px); }
 }
 
 @keyframes cardAnimation2 {
     0% { transform: rotate(0deg) translate(0, 0); }
-    100% { transform: rotate(15deg) translate(40px, -20px); }
+    100% { transform: rotate(12deg) translate(20px, -10px); }
 }
 
 /* Buttons */
