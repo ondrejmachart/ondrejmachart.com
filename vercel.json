@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/little-explorer",
+      "destination": "/little-explorer.html"
+    }
+  ]
+}
