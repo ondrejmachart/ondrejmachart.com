@@ -128,8 +128,8 @@ p {
 }
 
 .screenshot-2 {
-    top: 20px;
-    left: 30px;
+    top: 40px;
+    left: 60px;
     z-index: 1;
     animation: cardAnimation2 1.5s ease-out forwards;
     animation-delay: 0.7s;
@@ -142,7 +142,7 @@ p {
 
 @keyframes cardAnimation2 {
     0% { transform: rotate(0deg) translate(0, 0); }
-    100% { transform: rotate(12deg) translate(20px, 0); }
+    100% { transform: rotate(15deg) translate(40px, -20px); }
 }
 
 /* Buttons */
