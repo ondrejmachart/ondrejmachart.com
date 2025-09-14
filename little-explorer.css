@@ -1,4 +1,4 @@
-/* Little Explorer Page - Professional UX/UI Design */
+/* Little Explorer Page - Scroll-Based Centerpiece Design */
 
 /* Reset and Base Styles */
 * {
@@ -32,7 +32,7 @@ h2 {
     font-size: clamp(2rem, 4vw, 2.5rem);
     color: #f0f0f0;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 h3 {
@@ -55,7 +55,7 @@ p {
 }
 
 section {
-    padding: 5rem 0;
+    padding: 3rem 0;
     min-height: auto;
 }
 
@@ -209,40 +209,87 @@ section {
     font-size: 1.1rem;
 }
 
-/* Feature Sections */
-.benefits {
+/* Scroll-Based Centerpiece Section */
+.centerpiece-section {
+    position: relative;
+    padding: 5rem 0;
     background: rgba(255, 255, 255, 0.02);
 }
 
-.feature-grid {
+.centerpiece-container {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 5rem;
-    margin-top: 2rem;
-}
-
-.feature-item {
-    display: grid;
-    grid-template-columns: 1fr 300px;
+    grid-template-columns: 1fr 350px 1fr;
     gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    align-items: start;
+}
+
+.centerpiece-phone {
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.centerpiece-screenshot {
+    width: 300px;
+    height: 600px;
+    background: linear-gradient(135deg, #6bb6ff 0%, #c77dff 100%);
+    border-radius: 25px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    border: 8px solid #2a2a2a;
+    position: relative;
+    overflow: hidden;
+    display: flex;
     align-items: center;
-    padding: 2rem 0;
+    justify-content: center;
+    transition: all 0.5s ease;
 }
 
-.feature-item:nth-child(even) {
-    grid-template-columns: 300px 1fr;
+.centerpiece-screenshot::before {
+    content: 'App Screenshot';
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 300;
+    font-size: 0.9rem;
+    text-align: center;
 }
 
-.feature-item:nth-child(even) .feature-content {
-    order: 2;
+/* Content Sections that trigger screenshot changes */
+.content-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
 }
 
-.feature-item:nth-child(even) .feature-visual {
-    order: 1;
+.content-left {
+    grid-column: 1;
+}
+
+.content-right {
+    grid-column: 3;
 }
 
 .feature-content {
-    max-width: 600px;
+    max-width: 500px;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.feature-content.active {
+    background: rgba(107, 182, 255, 0.05);
+    border-color: rgba(107, 182, 255, 0.2);
+    transform: scale(1.02);
+}
+
+.content-right .feature-content {
+    margin-left: auto;
 }
 
 .feature-badge {
@@ -258,17 +305,20 @@ section {
     letter-spacing: 0.5px;
 }
 
-.feature-item h3 {
+.feature-content h3 {
     margin-bottom: 1.5rem;
+    font-size: 1.4rem;
 }
 
-.feature-item p {
+.feature-content p {
     margin-bottom: 2rem;
+    font-size: 1rem;
 }
 
 .feature-list {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .feature-list li {
@@ -276,6 +326,7 @@ section {
     margin-bottom: 0.8rem;
     position: relative;
     padding-left: 2rem;
+    font-size: 0.95rem;
 }
 
 .feature-list li::before {
@@ -287,7 +338,7 @@ section {
     width: 1.5rem;
 }
 
-.destination-tags {
+.destination-tags, .privacy-points {
     display: flex;
     flex-wrap: wrap;
     gap: 0.8rem;
@@ -297,18 +348,11 @@ section {
 .tag {
     background: rgba(107, 182, 255, 0.1);
     color: #6bb6ff;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
     font-weight: 400;
     border: 1px solid rgba(107, 182, 255, 0.2);
-}
-
-.privacy-points {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
 }
 
 .privacy-point {
@@ -317,182 +361,50 @@ section {
     gap: 0.8rem;
     color: #b3b3b3;
     font-weight: 400;
+    font-size: 0.9rem;
 }
 
 .privacy-icon {
-    font-size: 1.5rem;
-    width: 2rem;
+    font-size: 1.3rem;
+    width: 1.8rem;
 }
 
-/* App Screenshots */
-.feature-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.app-screenshot {
-    width: 280px;
-    height: 560px;
-    background: linear-gradient(135deg, #6bb6ff 0%, #c77dff 50%, #ff6b6b 100%);
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-    border: 6px solid #2a2a2a;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.app-screenshot::before {
-    content: 'App Screenshot';
-    color: rgba(255, 255, 255, 0.3);
-    font-weight: 300;
-    font-size: 0.9rem;
-    text-align: center;
-}
-
-/* Different placeholder colors */
-.placeholder-1 {
+/* Screenshot variants for scroll triggers */
+.centerpiece-screenshot.screenshot-1 {
     background: linear-gradient(135deg, #6bb6ff 0%, #92cbff 100%);
 }
 
-.placeholder-2 {
+.centerpiece-screenshot.screenshot-2 {
     background: linear-gradient(135deg, #c77dff 0%, #e77dff 100%);
 }
 
-.placeholder-3 {
+.centerpiece-screenshot.screenshot-3 {
     background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
 }
 
-/* How It Works Section */
-.how-it-works {
-    background: rgba(255, 255, 255, 0.02);
+.centerpiece-screenshot.screenshot-4 {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa07a 100%);
 }
 
-.section-subtitle {
-    color: #999;
-    font-size: 1.2rem;
-    font-weight: 300;
-    text-align: center;
-    margin-top: -2rem;
-    margin-bottom: 4rem;
-}
-
-.steps-container {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 4rem;
-    align-items: start;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.step-visual {
-    position: sticky;
-    top: 2rem;
-}
-
-.step-screenshots {
-    position: relative;
-    width: 280px;
-    height: 560px;
-}
-
-.step-screenshot {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #666 0%, #999 100%);
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-    border: 6px solid #2a2a2a;
-    opacity: 0;
-    transform: scale(0.95);
-    transition: all 0.3s ease;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.step-screenshot.active {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.step-screenshot::before {
-    content: 'Step Screenshot';
-    color: rgba(255, 255, 255, 0.3);
-    font-weight: 300;
-    font-size: 0.9rem;
-    text-align: center;
-}
-
-.step-screenshot[data-step="1"] {
-    background: linear-gradient(135deg, #6bb6ff 0%, #92cbff 100%);
-}
-
-.step-screenshot[data-step="2"] {
-    background: linear-gradient(135deg, #c77dff 0%, #e77dff 100%);
-}
-
-.step-screenshot[data-step="3"] {
-    background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
-}
-
-.steps-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.step-item {
-    display: flex;
-    gap: 2rem;
-    padding: 2rem;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    opacity: 0.6;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.step-item.active {
-    opacity: 1;
-    background: rgba(107, 182, 255, 0.05);
-    border-color: rgba(107, 182, 255, 0.2);
-}
-
-.step-number {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #6bb6ff;
-    flex-shrink: 0;
-    width: 3rem;
-}
-
-.step-text h3 {
-    margin-bottom: 0.8rem;
-}
-
-.step-text p {
-    margin: 0;
+.centerpiece-screenshot.screenshot-5 {
+    background: linear-gradient(135deg, #98fb98 0%, #90ee90 100%);
 }
 
 /* Story Section */
 .story {
     background: rgba(255, 255, 255, 0.02);
+    padding: 4rem 0;
 }
 
 .story-content {
     max-width: 800px;
     margin: 0 auto;
     text-align: left;
+}
+
+.story h2 {
+    text-align: left;
+    margin-bottom: 2rem;
 }
 
 .story-intro {
@@ -515,7 +427,7 @@ section {
 /* Download CTA Section */
 .download-cta {
     text-align: center;
-    padding: 4rem 0;
+    padding: 4rem 0 3rem 0;
 }
 
 .cta-content h2 {
@@ -526,6 +438,10 @@ section {
     font-size: 1.2rem;
     margin-bottom: 2.5rem;
     font-weight: 300;
+}
+
+.cta-buttons {
+    justify-content: center;
 }
 
 .cta-note {
@@ -539,7 +455,7 @@ section {
 .footer-main {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 2rem 0;
-    margin-top: 2rem;
+    margin-top: 0;
 }
 
 .footer-content {
@@ -576,16 +492,34 @@ section {
 
 /* Mobile Responsiveness */
 @media (max-width: 1024px) {
-    .steps-container {
+    .centerpiece-container {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 4rem;
+        text-align: center;
     }
     
-    .step-visual {
+    .centerpiece-phone {
         position: static;
+        transform: none;
         order: -1;
-        display: flex;
-        justify-content: center;
+        margin-bottom: 2rem;
+    }
+    
+    .content-sections {
+        gap: 4rem;
+    }
+    
+    .content-left, .content-right {
+        grid-column: 1;
+    }
+    
+    .content-right .feature-content {
+        margin-left: 0;
+    }
+    
+    .centerpiece-screenshot {
+        width: 280px;
+        height: 560px;
     }
 }
 
@@ -595,7 +529,7 @@ section {
     }
     
     section {
-        padding: 3rem 0;
+        padding: 2rem 0;
     }
     
     .hero {
@@ -624,60 +558,32 @@ section {
         height: 440px;
     }
     
-    .feature-item {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
+    .centerpiece-container {
+        padding: 0 1.5rem;
+        gap: 3rem;
     }
     
-    .feature-item:nth-child(even) {
-        grid-template-columns: 1fr;
-    }
-    
-    .feature-item:nth-child(even) .feature-content {
-        order: 1;
-    }
-    
-    .feature-item:nth-child(even) .feature-visual {
-        order: -1;
-    }
-    
-    .feature-visual {
-        order: -1;
-    }
-    
-    .app-screenshot {
+    .centerpiece-screenshot {
         width: 240px;
-        height: 440px;
+        height: 480px;
     }
     
-    .privacy-points {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .step-screenshots {
-        width: 240px;
-        height: 440px;
-    }
-    
-    .step-item {
+    .feature-content {
         padding: 1.5rem;
-        gap: 1.5rem;
-    }
-    
-    .step-number {
-        font-size: 1.5rem;
-        width: 2.5rem;
     }
     
     .cta-buttons {
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
     
     .footer-content {
         text-align: center;
         flex-direction: column;
+    }
+    
+    .download-cta {
+        padding: 3rem 0 2rem 0;
     }
 }
 
@@ -701,18 +607,12 @@ section {
         height: 360px;
     }
     
-    .app-screenshot {
+    .centerpiece-screenshot {
         width: 200px;
-        height: 360px;
+        height: 400px;
     }
     
-    .step-screenshots {
-        width: 200px;
-        height: 360px;
-    }
-    
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
+    .centerpiece-container {
+        padding: 0 1rem;
     }
 }
