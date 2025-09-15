@@ -198,6 +198,26 @@ p {
     text-decoration: none;
 }
 
+/* Tablet Responsiveness */
+@media (max-width: 1024px) {
+    .hero-content {
+        gap: 3rem;
+    }
+    
+    .screenshot-container {
+        width: 360px;
+        height: 500px;
+    }
+    
+    .screenshot-img {
+        width: 240px;
+    }
+    
+    .screenshot-2 {
+        left: 120px;
+    }
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .hero {
@@ -207,39 +227,115 @@ p {
     
     .hero-content {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2rem;
         text-align: center;
         padding: 0 1.5rem;
     }
     
     .screenshots-section {
         order: -1;
+        margin-bottom: 1rem;
     }
     
     .screenshot-container {
-        width: 280px;
-        height: 480px;
+        width: 320px;
+        height: 280px;
+        margin: 0 auto;
     }
     
-    .screenshot {
-        width: 240px;
-        height: 440px;
+    .screenshot-img {
+        width: 180px;
+    }
+    
+    .screenshot-1 {
+        top: 0;
+        left: 0;
+    }
+    
+    .screenshot-2 {
+        top: 20px;
+        left: 100px;
+    }
+    
+    @keyframes cardAnimation1 {
+        0% { transform: rotate(0deg) translate(0, 0); }
+        100% { transform: rotate(-8deg) translate(-20px, 5px); }
+    }
+    
+    @keyframes cardAnimation2 {
+        0% { transform: rotate(0deg) translate(0, 0); }
+        100% { transform: rotate(10deg) translate(15px, -5px); }
     }
 }
 
 @media (max-width: 480px) {
     .hero-content {
         padding: 0 1rem;
-        gap: 2rem;
+        gap: 1.5rem;
     }
     
     .screenshot-container {
-        width: 240px;
-        height: 400px;
+        width: 260px;
+        height: 240px;
     }
     
-    .screenshot {
-        width: 200px;
-        height: 360px;
+    .screenshot-img {
+        width: 140px;
+    }
+    
+    .screenshot-1 {
+        top: 0;
+        left: 10px;
+    }
+    
+    .screenshot-2 {
+        top: 15px;
+        left: 90px;
+    }
+    
+    @keyframes cardAnimation1 {
+        0% { transform: rotate(0deg) translate(0, 0); }
+        100% { transform: rotate(-6deg) translate(-10px, 3px); }
+    }
+    
+    @keyframes cardAnimation2 {
+        0% { transform: rotate(0deg) translate(0, 0); }
+        100% { transform: rotate(8deg) translate(10px, -3px); }
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .cta-buttons {
+        justify-content: center;
+    }
+    
+    .btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .screenshot-container {
+        width: 240px;
+        height: 220px;
+    }
+    
+    .screenshot-img {
+        width: 120px;
+    }
+    
+    .screenshot-2 {
+        left: 80px;
     }
 }
