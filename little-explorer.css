@@ -241,6 +241,14 @@ p {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+    .legal-links {
+        margin-top: 2rem;
+    }
+    
+    .legal-links .separator {
+        margin: 0 0.5rem;
+    }
+    
     .hero {
         min-height: auto;
         padding: 2rem 0;
