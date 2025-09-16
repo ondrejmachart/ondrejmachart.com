@@ -3,6 +3,14 @@
     {
       "source": "/little-explorer",
       "destination": "/little-explorer.html"
+    },
+    {
+      "source": "/little-explorer-privacy",
+      "destination": "/little-explorer-privacy.html"
+    },
+    {
+      "source": "/little-explorer-terms",
+      "destination": "/little-explorer-terms.html"
     }
   ]
 }
