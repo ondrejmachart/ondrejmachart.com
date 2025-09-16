@@ -198,6 +198,27 @@ p {
     text-decoration: none;
 }
 
+/* Legal Links */
+.legal-links {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+}
+
+.legal-links a {
+    color: #999;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.legal-links a:hover {
+    color: #6bb6ff;
+}
+
+.legal-links .separator {
+    color: #666;
+    margin: 0 1rem;
+}
+
 /* Tablet Responsiveness */
 @media (max-width: 1024px) {
     .hero-content {
