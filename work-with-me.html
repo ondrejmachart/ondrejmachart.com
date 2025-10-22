@@ -100,8 +100,10 @@
             font-size: 1.8rem;
             font-weight: 700;
             color: #f0f0f0;
-            margin-top: 3rem;
+            margin-top: 4rem;
             margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 4px solid #6bb6ff;
         }
 
         .guide-content h3 {
@@ -119,12 +121,23 @@
 
         .guide-content ul {
             margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
+            padding-left: 0;
+            list-style: none;
         }
 
         .guide-content li {
             margin-bottom: 0.75rem;
             color: #c0c0c0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .guide-content li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #6bb6ff;
+            font-weight: 700;
         }
 
         .guide-content a {
@@ -136,10 +149,114 @@
             font-weight: 700;
         }
 
-        .section-intro {
-            font-style: italic;
-            color: #a0a0a0;
-            margin-bottom: 1.5rem;
+        /* TL;DR Box */
+        .tldr-box {
+            background: rgba(107, 182, 255, 0.08);
+            border: 1px solid rgba(107, 182, 255, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .tldr-box h3 {
+            font-family: 'Rubik', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #6bb6ff;
+            letter-spacing: 0.1em;
+            margin: 0 0 1rem 0;
+            text-transform: uppercase;
+        }
+
+        .tldr-box p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Highlight boxes for principles */
+        .principle-box {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 3px solid #6bb6ff;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .principle-box:hover {
+            background: rgba(107, 182, 255, 0.05);
+            transform: translateX(4px);
+        }
+
+        .principle-box strong {
+            color: #6bb6ff;
+        }
+
+        /* Grid layout for key-value pairs */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            background: rgba(107, 182, 255, 0.05);
+            border-color: rgba(107, 182, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .info-card-label {
+            font-weight: 700;
+            color: #6bb6ff;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .info-card-value {
+            color: #e0e0e0;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Pull quote */
+        .pull-quote {
+            background: linear-gradient(135deg, rgba(107, 182, 255, 0.1) 0%, rgba(199, 125, 255, 0.1) 100%);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #f0f0f0;
+            line-height: 1.6;
+            border: 1px solid rgba(107, 182, 255, 0.2);
+        }
+
+        /* Section divider */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(107, 182, 255, 0.3) 50%, transparent 100%);
+            margin: 4rem 0;
+        }
+
+        /* Alternate section background */
+        .alt-section {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem -2rem;
         }
 
         @media (max-width: 768px) {
@@ -162,6 +279,20 @@
             .guide-content h3 {
                 font-size: 1.2rem;
             }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pull-quote {
+                font-size: 1.1rem;
+                padding: 2rem 1.5rem;
+            }
+
+            .alt-section {
+                margin: 2rem -1.5rem;
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -177,6 +308,13 @@
         </div>
 
         <div class="guide-content">
+            <div class="tldr-box">
+                <h3>TL;DR</h3>
+                <p>
+                    I thrive close to the product, solving real problems with smart people. I value influence over authority, clarity over noise, and outcomes over outputs. I work best with open collaboration, direct communication, and people who bring their own thinking. Low ego, high trust, bias for action.
+                </p>
+            </div>
+
             <h2>How I got here</h2>
             <p>
                 I spent the first 10 years of my career as a UX designer—doing research, prototyping, testing, pitching, and product validation. That's where I learned to think by doing, taking responsibility for problems end-to-end, not just following process because "that's how it's done."
@@ -191,11 +329,26 @@
             </p>
 
             <h2>How I approach work</h2>
-            <p><strong>Independent thinking</strong> – I don't default to "how others do it." I explore, challenge assumptions, and look for better answers.</p>
-            <p><strong>Bias for action</strong> – Momentum matters. I'd rather run small experiments than debate hypotheticals.</p>
-            <p><strong>Depth before decisions</strong> – Good decisions come from understanding the problem well, not jumping to solutions.</p>
-            <p><strong>Flow matters</strong> – I do my deepest work alone, then bring it to the team to pressure-test and refine together.</p>
-            <p><strong>Outcomes over outputs</strong> – I focus on the result and whether it makes a difference, not the volume of activity.</p>
+
+            <div class="principle-box">
+                <p><strong>Independent thinking</strong> – I don't default to "how others do it." I explore, challenge assumptions, and look for better answers.</p>
+            </div>
+
+            <div class="principle-box">
+                <p><strong>Bias for action</strong> – Momentum matters. I'd rather run small experiments than debate hypotheticals.</p>
+            </div>
+
+            <div class="principle-box">
+                <p><strong>Depth before decisions</strong> – Good decisions come from understanding the problem well, not jumping to solutions.</p>
+            </div>
+
+            <div class="principle-box">
+                <p><strong>Flow matters</strong> – I do my deepest work alone, then bring it to the team to pressure-test and refine together.</p>
+            </div>
+
+            <div class="principle-box">
+                <p><strong>Outcomes over outputs</strong> – I focus on the result and whether it makes a difference, not the volume of activity.</p>
+            </div>
 
             <h2>How I work with others</h2>
             <p>
@@ -208,15 +361,17 @@
                 I don't overlay my style on others. I adapt based on context and people—everyone works differently, and that's completely fine.
             </p>
 
-            <h2>Communication with me</h2>
-            <p>I appreciate clarity and context—tell me what you think and why. Short and clear beats long and vague. Async is often faster than meetings.</p>
-            <p>If something is unclear, I'll ask direct questions—not to challenge you personally, but to find the truth faster.</p>
-            <p>I don't react well to drama in groups, but I'm always available for real conversations 1:1.</p>
+            <div class="alt-section">
+                <h2>Communication with me</h2>
+                <p>I appreciate clarity and context—tell me what you think and why. Short and clear beats long and vague. Async is often faster than meetings.</p>
+                <p>If something is unclear, I'll ask direct questions—not to challenge you personally, but to find the truth faster.</p>
+                <p>I don't react well to drama in groups, but I'm always available for real conversations 1:1.</p>
 
-            <h2>Feedback</h2>
-            <p>
-                I see feedback as a normal part of working together—not a performance event. If something can be better, I'd rather discuss it early and fix it than smile politely and watch it fail. I'm direct by nature, but I always discuss ideas, not people. I appreciate the same in return.
-            </p>
+                <h2>Feedback</h2>
+                <p>
+                    I see feedback as a normal part of working together—not a performance event. If something can be better, I'd rather discuss it early and fix it than smile politely and watch it fail. I'm direct by nature, but I always discuss ideas, not people. I appreciate the same in return.
+                </p>
+            </div>
 
             <h2>How to get the best from me</h2>
             <ul>
@@ -239,17 +394,39 @@
             </p>
 
             <h2>How I work best</h2>
-            <p><strong>Environment:</strong> Mix of focus time and collaboration</p>
-            <p><strong>Style:</strong> Calm intensity, low ego, clear ownership</p>
-            <p><strong>Speed:</strong> Fast but thoughtful</p>
-            <p><strong>Schedule:</strong> Mornings are best for deep work; Fridays reserved for focus where possible</p>
-            <p><strong>Balance:</strong> Family time matters; weekends are offline by default</p>
-            <p><strong>Values:</strong> Honesty, responsibility, curiosity, quality</p>
 
-            <h2 style="margin-top: 4rem; text-align: center;">—</h2>
-            <p style="text-align: center; font-size: 1.2rem; color: #e0e0e0; margin-top: 2rem;">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-card-label">Environment</div>
+                    <div class="info-card-value">Mix of focus time and collaboration</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-label">Style</div>
+                    <div class="info-card-value">Calm intensity, low ego, clear ownership</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-label">Speed</div>
+                    <div class="info-card-value">Fast but thoughtful</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-label">Schedule</div>
+                    <div class="info-card-value">Mornings are best for deep work; Fridays reserved for focus where possible</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-label">Balance</div>
+                    <div class="info-card-value">Family time matters; weekends are offline by default</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-label">Values</div>
+                    <div class="info-card-value">Honesty, responsibility, curiosity, quality</div>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="pull-quote">
                 If you care about building good products, thinking clearly, and working with low ego and high trust, we'll work well together.
-            </p>
+            </div>
         </div>
     </div>
 
