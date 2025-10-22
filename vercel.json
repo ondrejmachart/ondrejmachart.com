@@ -11,6 +11,10 @@
     {
       "source": "/little-explorer-terms",
       "destination": "/little-explorer-terms.html"
+    },
+    {
+      "source": "/work-with-me",
+      "destination": "/work-with-me.html"
     }
   ]
 }
