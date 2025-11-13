@@ -12,10 +12,4 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    <url>
-        <loc>https://ondrejmachart.com/case-studies</loc>
-        <lastmod>2025-11-14</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
 </urlset>
