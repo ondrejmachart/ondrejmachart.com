@@ -15,6 +15,10 @@
     {
       "source": "/work-with-me",
       "destination": "/work-with-me.html"
+    },
+    {
+      "source": "/case-studies",
+      "destination": "/case-studies.html"
     }
   ]
 }
